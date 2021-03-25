@@ -6,11 +6,11 @@ Currently I only have the CVS scripts working.
 
 ## CVS Info:
 
-This script check this URL : https://www.cvs.com/immunizations/covid-19-vaccine
+These scripts check this URL : https://www.cvs.com/immunizations/covid-19-vaccine
 
 [list_cities](cvs/list_cities.py) : This is a basic script that just checks all the cities in your state and prints the results.
 
-[run_alerts](cvs/run_alerts.py) : This script checks for updates to the availability and sends an email with a link to check. Hopefully, you should be able to sign-up for an appointment.
+[run_alerts](cvs/run_alerts.py) : This script checks for updates to the availability and sends an email with a link. Hopefully, you should be able to sign-up for an appointment.
 
 Just change the relevant information in the settings section.
 
