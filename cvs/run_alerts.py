@@ -10,9 +10,9 @@ from email.message import EmailMessage
 
 # region: ..... settings .....
 
-eml_config = {'sender': 'steve@sequenzia.com',
+eml_config = {'sender': '',
               'password': '',
-              'recipient': 'sequenzia@gmail.com',
+              'recipient': '',
               'smtp_server': 'smtp.gmail.com',
               'ssl_port': 465,
               'context': ssl.create_default_context()}
@@ -44,16 +44,19 @@ def run_alerts(alert_secs=alert_secs, alert_st=alert_st, ref=ref, url=url):
         city_status = data['status']
 
         if city_name in alert_cities and city_status == 'Available':
-            msg = send_email(alert_st, city_name, city_status)
+            msg = send_email(alert_st, city_name, city_status, ref)
             print(msg, '\n')
 
-def send_email(alert_st, city_name, city_status, config=eml_config):
+def send_email(alert_st, city_name, city_status, send_url, config=eml_config):
 
     msg_body = 'State: ' + alert_st
     msg_body += '\n'
     msg_body += 'City: ' + city_name
     msg_body += '\n'
     msg_body += 'Status: ' + city_status
+    msg_body += '\n\n'
+    msg_body += 'Link: ' + send_url
+    msg_body += '\n'
 
     msg = EmailMessage()
     msg.set_content(msg_body)
